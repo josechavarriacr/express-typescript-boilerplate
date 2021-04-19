@@ -4,13 +4,13 @@ import cors from 'cors'
 import morgan from 'morgan'
 import fs from 'fs'
 import path from 'path'
-import setRoutes from './routes'
+// import setRoutes from './routes'
 
 export const app = express()
 
 // create a write stream (in append mode)
 const accessLogStream = fs.createWriteStream(
-  path.resolve(__dirname, '../access.log'),
+  path.resolve('access.log'),
   { flags: 'a' }
 )
 // setup the logger
@@ -22,6 +22,6 @@ app.disable('x-powered-by')
 app.use(bodyParser.json())
 app.use(cors())
 app.use(urlencoded({ extended: true }))
-app.use('/api', setRoutes)
+// app.use('/api', setRoutes)
 
 export default app
