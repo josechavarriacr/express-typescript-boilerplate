@@ -1,4 +1,5 @@
-
+import { TodoEntity } from './todo.entity'
 export interface TodoRepository {
-    create(): 
+    create(todo: TodoEntity): Promise<void>
+    searchBy
 }
