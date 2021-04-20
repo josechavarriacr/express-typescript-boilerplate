@@ -1,6 +1,6 @@
 import chalk from 'chalk';
 import config from './components/Shared/infrastructure/Http/env.config';
-import app from './components/Shared/infrastructure/Http/express-server.config';
+import app from './components/Shared/infrastructure/Http/Express/express-server.config';
 const { port } = config
 
 app.get('/', (req, res) => res.send('Express + TypeScript Server??'));

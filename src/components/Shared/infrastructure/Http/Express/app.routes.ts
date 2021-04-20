@@ -1,8 +1,10 @@
 import { Router } from 'express';
 import glob from 'glob';
+import path from 'path'
 
 export function registerRoutes(router: Router) {
-  const routes = glob.sync(__dirname + '/**/*.route.*');
+  const pathToFind = path.resolve(__dirname, '../../../../../')
+  const routes = glob.sync(pathToFind + '**/*.route.*');
   routes.map(route => register(route, router));
 }
 

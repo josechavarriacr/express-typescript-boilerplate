@@ -1,5 +1,5 @@
-import TodoEntity from '../domain/TodoEntity'
+import TodoEntity from '../domain/todo.entity'
 
-export interface TodoRepository {
-
+export interface TodoRepository implements  {
+    createOne
 }
