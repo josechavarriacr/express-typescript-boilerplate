@@ -1,11 +1,15 @@
 import config from './components/Shared/infrastructure/Http/env.config';
-const { port } = config
-import { Server } from './components/Shared/infrastructure/Http/Express/express-server.config'
+import server from './components/Shared/infrastructure/Http/Express/express-server.config';
+import { HttpRequest, HttpResponse } from './components/Shared/infrastructure/Http/Express/express-controller';
+import { loggerMessage } from './components/Shared/infrastructure/Logger/logger-message';
+import { loggerInfo } from './components/Shared/infrastructure/Logger/logger-info';
 
-const run = async() => {
-    if (!port) throw new Error('Backoffice backend application has not been started')
-    const app = new Server(port)
-    return app.listen();
-}
+const { port, env, apiName } = config
 
-run()
+server.get('/', (req: HttpRequest, res: HttpResponse) => res.send('Express + TypeScript Server??'));
+server.listen(port, () => {
+    loggerInfo('')
+    loggerMessage(`  Server is running at http://localhost:${port}`)
+    loggerMessage(`  ${apiName} is running at http://localhost:${port} in ${env} mode`)
+    loggerInfo('  Press CTRL-C to stop\n')
+})
