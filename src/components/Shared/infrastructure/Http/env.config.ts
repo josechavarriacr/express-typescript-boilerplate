@@ -7,7 +7,7 @@ const config = {
   env,
   isDev: env === 'development',
   isTest: env === 'testing',
-  port: process.env.API_PORT || 5000,
+  port: parseInt(process.env.API_PORT || '5000'),
   secrets: {
     jwt: process.env.JWT_SECRET || 'mercaditocr',
     jwtExp: process.env.JWT_EXP || '365d',

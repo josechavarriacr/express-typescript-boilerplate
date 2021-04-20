@@ -1,10 +1,11 @@
-import chalk from 'chalk';
 import config from './components/Shared/infrastructure/Http/env.config';
-import app from './components/Shared/infrastructure/Http/Express/express-server.config';
 const { port } = config
+import { Server } from './components/Shared/infrastructure/Http/Express/express-server.config'
 
-app.get('/', (req, res) => res.send('Express + TypeScript Server??'));
+const run = async() => {
+    if (!port) throw new Error('Backoffice backend application has not been started')
+    const app = new Server(port)
+    return app.listen();
+}
 
-app.listen(port, () => {
-    console.log(chalk.blue(`Server is running at http://localhost:${port}`))
-});
+run()
