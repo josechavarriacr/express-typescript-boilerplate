@@ -9,7 +9,7 @@ const { port, env, apiName } = config
 server.get('/', (req: HttpRequest, res: HttpResponse) => res.send('Express + TypeScript Server??'));
 server.listen(port, () => {
     loggerInfo('')
-    loggerMessage(`  Server is running at http://localhost:${port}`)
-    loggerMessage(`  ${apiName} is running at http://localhost:${port} in ${env} mode`)
+    loggerMessage(`  ${apiName} is running at http://localhost:${port}`)
+    loggerMessage(`  ${apiName} is running in ${env} mode`)
     loggerInfo('  Press CTRL-C to stop\n')
 })

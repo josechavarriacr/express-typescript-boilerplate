@@ -5,11 +5,7 @@ import morgan from 'morgan'
 import fs from 'fs'
 import path from 'path'
 import { registerRoutes } from './app.routes';
-// import compress from 'compression'
-// import { registerRoutes } from './server.routes'
-
-// import setRoutes from './routes'
-
+import compress from 'compression'
 export const server = express()
 
 // create a write stream (in append mode)
@@ -23,7 +19,7 @@ server.disable('x-powered-by')
 server.use(bodyParser.json())
 server.use(cors())
 server.use(urlencoded({ extended: true }))
-  // server.use(compress())
+  server.use(compress())
 
   // Routes
   const router = Router()
@@ -36,14 +32,3 @@ router.use((err: Error, req: Request, res: Response, next: Function) => {
 })
 
 export default server
-
-//   async listen(): Promise<void> {
-//     return new Promise(resolve => {
-//       this.httpServer = this.express.listen(this.port, () => {
-//         chalk.green(`Backend App is running at http://localhost:${this.port} in ${this.express.get('env')} mode`)
-//         chalk.green('  Press CTRL-C to stop\n')
-//         resolve()
-//       })
-//     })
-//   }
-// }
