@@ -19,11 +19,11 @@ server.disable('x-powered-by')
 server.use(bodyParser.json())
 server.use(cors())
 server.use(urlencoded({ extended: true }))
-  server.use(compress())
+server.use(compress())
 
-  // Routes
-  const router = Router()
-  // router.use(errorHandler())
+// Routes
+const router = Router()
+// router.use(errorHandler())
 server.use(router)
 registerRoutes(router)
 router.use((err: Error, req: Request, res: Response, next: Function) => {
