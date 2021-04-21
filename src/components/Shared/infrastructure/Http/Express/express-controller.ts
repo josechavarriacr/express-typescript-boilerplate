@@ -1,3 +1,5 @@
-import { Response as HttpResponse, Request as HttpRequest } from 'express'
+import { Response as HttpResponse } from 'express'
+import { Request as HttpRequest } from 'express'
+import { NextFunction as HttpNextFunction  } from 'express'
 
-export { HttpRequest, HttpResponse }
+export { HttpRequest, HttpResponse, HttpNextFunction }
