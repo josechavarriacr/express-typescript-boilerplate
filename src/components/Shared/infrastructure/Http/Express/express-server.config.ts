@@ -4,7 +4,7 @@ import cors from 'cors'
 import morgan from 'morgan'
 import fs from 'fs'
 import path from 'path'
-import { registerRoutes } from './app.routes';
+import { registerRoutes } from './register-routes';
 import compress from 'compression'
 export const server = express()
 
