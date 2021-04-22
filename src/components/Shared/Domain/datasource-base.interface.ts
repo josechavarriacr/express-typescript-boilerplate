@@ -1,6 +1,6 @@
-import { ObjectId } from 'mongoose'
+import ID from './ID';
 export interface DataBase {
-    id: ObjectId;
+    id: ID;
     createdAt: string;
     updatedAt: string;
   }
