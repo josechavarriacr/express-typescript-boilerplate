@@ -1,4 +1,4 @@
-import express, { Request, Response, Router } from 'express';
+import express, { Router } from 'express';
 import bodyParser, { urlencoded } from 'body-parser'
 import cors from 'cors'
 import morgan from 'morgan'
@@ -6,7 +6,6 @@ import fs from 'fs'
 import path from 'path'
 import { registerRoutes } from './register-routes';
 import compress from 'compression'
-import { loggerError } from '../../Logger/logger-error';
 export const server = express()
 
 // create a write stream (in append mode)
@@ -22,15 +21,9 @@ server.use(cors())
 server.use(urlencoded({ extended: true }))
 server.use(compress())
 
-// Routes
 const router = Router()
-// router.use(errorHandler())
+
 server.use(router)
 registerRoutes(router)
-router.use((err: Error, req: Request, res: Response, next: Function) => {
-  // tracking error log
-  loggerError(err.message)
-  res.status(500).json(err.message)
-})
 
 export default server
