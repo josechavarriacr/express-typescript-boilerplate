@@ -1,8 +1,8 @@
 import uniqueValidator from 'mongoose-unique-validator'
-import mongoose, { Schema, Document } from 'mongoose';
+import mongoose, { Schema, Document, ObjectId } from 'mongoose';
 
 export interface ITodo extends Document {
-    id: string,
+    id: ObjectId,
     name: string; 
     status: boolean; 
     createdAt: string;

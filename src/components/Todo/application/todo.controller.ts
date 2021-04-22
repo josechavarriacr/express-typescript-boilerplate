@@ -9,6 +9,7 @@ class TodoController {
         this.service = new TodoService(new TodoMongoRepository())
         this.findAll = this.findAll.bind(this)
         this.createOne = this.createOne.bind(this)
+        this.findOne = this.findOne.bind(this)
     }
 
     async findAll(req: HttpRequest, res: HttpResponse, next: HttpNextFunction) {
@@ -22,6 +23,22 @@ class TodoController {
             next(error)
         }
     }
+
+    async findOne(req: HttpRequest, res: HttpResponse, next: HttpNextFunction) {
+        try {
+            const { id } = req.params
+            const data = await this.service.findOne(id)
+            const message = 'my message'
+            const key = 'todo:created'
+            const response = {  data, message, key }
+            res.status(200).json(response)
+        } catch (error) {
+            next(error)
+        }
+    }
+
+
+
     async createOne(req: HttpRequest, res: HttpResponse, next: HttpNextFunction) {
         try {
             const data = await this.service.createOne(req.body)
@@ -33,6 +50,7 @@ class TodoController {
             next(error)
         }
     }
+
 }
 
 export default new TodoController()

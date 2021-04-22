@@ -12,6 +12,12 @@ class TodoService {
         return result
     }
 
+    async findOne(id: string) {
+         // business conditions
+        const result: TodoEntity = await this.persistence.findOne(id)
+        return result
+    }
+
     async createOne(body: TodoEntity) {
         // business conditions
         const result: void = await this.persistence.createOne(body)
@@ -24,11 +30,6 @@ class TodoService {
     //     return result
     // }
 
-    // async findOne(id: string) {
-    //      // business conditions
-    //     const result: TodoEntity = await this.persistence.findOne(id)
-    //     return result
-    // }
 }
 
 export default TodoService

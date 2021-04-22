@@ -7,4 +7,9 @@ todosRouter.route('/')
     .get(todoController.findAll)
     .post(todoController.createOne)
 
+todosRouter.route('/:id')
+    .get(todoController.findOne)
+    .put()
+    .delete()
+
 export default todosRouter
