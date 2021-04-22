@@ -30,7 +30,7 @@ registerRoutes(router)
 router.use((err: Error, req: Request, res: Response, next: Function) => {
   // tracking error log
   loggerError(err.message)
-  res.status(500).send(err.message)
+  res.status(500).json(err.message)
 })
 
 export default server

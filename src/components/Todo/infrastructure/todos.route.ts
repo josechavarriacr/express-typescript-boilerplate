@@ -3,6 +3,8 @@ import todoController from '../application/todo.controller'
 
 const todosRouter = HttpRouter()
 
-todosRouter.route('/').get(todoController.findAll)
+todosRouter.route('/')
+    .get(todoController.findAll)
+    .post(todoController.createOne)
 
 export default todosRouter

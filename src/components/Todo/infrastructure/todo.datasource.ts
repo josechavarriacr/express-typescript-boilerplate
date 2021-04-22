@@ -13,7 +13,7 @@ const TodoSchema = new Schema({
         name: { type: String, required: true, unique: true },
         status: { type: String, required: true },
     }, { timestamps: true })
-    TodoSchema.plugin(uniqueValidator)
+    // TodoSchema.plugin(uniqueValidator)
 
 export default mongoose.model<ITodo>('Todos', TodoSchema)
 
