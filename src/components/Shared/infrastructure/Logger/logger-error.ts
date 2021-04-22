@@ -4,5 +4,5 @@ const { red } = chalk
 const { error } = console
 
 export function loggerError(message: string): void {
-    error(red(`? ${message}`))
+    error(red(`❌ ${message}`))
 }
