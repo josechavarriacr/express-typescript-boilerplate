@@ -6,6 +6,7 @@ import fs from 'fs'
 import path from 'path'
 import { registerRoutes } from './register-routes';
 import compress from 'compression'
+import { loggerError } from '../../Logger/logger-error';
 export const server = express()
 
 // create a write stream (in append mode)
@@ -28,6 +29,7 @@ server.use(router)
 registerRoutes(router)
 router.use((err: Error, req: Request, res: Response, next: Function) => {
   // tracking error log
+  loggerError(err.message)
   res.status(500).send(err.message)
 })
 
