@@ -1,4 +1,4 @@
-import { Nullable } from '../../Shared/Domain/value-object/Nullable';
+import { Nullable } from '../../Shared/Domain/Nullable';
 import TodoEntity from './todo.entity'
 import TodoId from './todo.id';
 
