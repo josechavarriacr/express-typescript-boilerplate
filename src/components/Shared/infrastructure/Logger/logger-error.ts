@@ -4,5 +4,7 @@ const { red } = chalk
 const { error } = console
 
 export function loggerError(message: string): void {
-    error(red(`❌ ${message}`))
+    const emojiX = String.fromCodePoint(0x274C)
+    const emojiXplotingHead = String.fromCodePoint(0x1F92F)
+    error(red(`  ${emojiXplotingHead} ${emojiX} ${message}`))
 }
