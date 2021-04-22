@@ -1,6 +1,6 @@
-import { ModelBase } from '../../Shared/Domain/model-base.interface';
+import { DataBase } from '../../Shared/Domain/datasource-base.interface';
 
-export default interface TodoEntity extends ModelBase {
-    todoName: string
-    todoStatus: number
+export default interface TodoEntity extends DataBase {
+    name: string
+    status: boolean
 }

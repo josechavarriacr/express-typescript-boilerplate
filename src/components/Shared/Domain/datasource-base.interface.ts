@@ -1,4 +1,4 @@
-export interface ModelBase {
+export interface DataBase {
     id: string;
     createdAt: string;
     updatedAt: string;
