@@ -8,9 +8,8 @@ import mongoConnection from './components/Shared/infrastructure/Persistence/Mong
 const { port, env, apiName } = config
 
 server.listen(port, () => {
-    loggerInfo('')
-    loggerMessage(`  ${apiName} is running at http://localhost:${port}`)
-    loggerMessage(`  ${apiName} is running in ${env} mode`)
+    loggerMessage(`${apiName} is running at http://localhost:${port}`)
+    loggerMessage(`${apiName} is running in ${env} mode`)
     mongoConnection.run()
-    loggerInfo('  Press CTRL-C to stop\n')
+    loggerInfo('Press CTRL-C to stop\n')
 })

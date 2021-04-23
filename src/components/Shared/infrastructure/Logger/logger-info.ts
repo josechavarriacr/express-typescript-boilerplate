@@ -4,5 +4,6 @@ const { blue } = chalk
 const { info } = console
 
 export function loggerInfo(message: string): void {
-    info(blue(message))
+    const emoji = String.fromCodePoint(0x1F197)
+    info(blue(`  ${emoji}  ${message}`))
 }

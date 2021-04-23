@@ -21,7 +21,7 @@ class MongoConnection {
     }
     run() {
         try {
-                loggerInfo(`  Establish new connection with the DB ${database}`)
+                loggerInfo(`Establish new connection with the DB ${database}`)
                 mongoose.connect(mongodbUrl, this.options)
             } catch (error) {
                 throw new Error(error)
